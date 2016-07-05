@@ -62,3 +62,15 @@ def auth(request):
 	else:
 		return render_to_response('Login.html')
 
+# # def client(request,pk=id)
+# def clients(request, companyId=None):
+# 	print companyId
+# 	clientqry = CompanyCreation.objects.get(id=companyId)
+
+# 	args = {"clientqry":clientqry}
+
+# 	return render_to_response('client.html',args)
+
+def client(request, id): 
+	l =  CompanyCreation.objects.get(pk=id) 
+	return render_to_response('client.html', {'CompanyCreation':l})

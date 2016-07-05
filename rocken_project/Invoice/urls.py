@@ -7,4 +7,7 @@ urlpatterns = [
 url(r'^login/', Invoice.views.login),
 url(r'^auth/', Invoice.views.auth),
 url(r'^homepage/', Invoice.views.homepage),
+# # url(r'^client/', Invoice.views.clients),
+# url(r'^client/(?P<id>[\w\-]+)/', Invoice.views.client),
+url(r'^client/(?P<id>\d+)/$', Invoice.views.client, name='client_list')
 ]
