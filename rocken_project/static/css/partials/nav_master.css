@@ -1,0 +1,35 @@
+.navbar-custom {
+  background-color: #000;
+  border-radius: 0px;
+}
+.navbar-custom ul li a {
+  color: #fff ;
+}
+.navbar-custom ul li a:hover {
+  background-color: red !important;
+}
+.navbar-custom .nav_menu {
+  text-decoration: none !important;
+  text-shadow: none !important;
+  color: #fff !important;
+}
+@media screen and (max-width: 768px) {
+  .navbar-custom .margin-top {
+    margin-top: 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-custom .margin-top {
+    margin-top: 20px;
+  }
+}
+.navbar-custom .logo img {
+  max-width: 200px;
+  margin-top: -60px;
+}
+.navbar-custom .container-fluid {
+  padding: 0px;
+}
+.navbar-custom .container-fluid img {
+  max-width: 500px;
+}

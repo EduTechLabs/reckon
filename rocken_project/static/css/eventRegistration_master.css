@@ -1,0 +1,71 @@
+.navbar-custom {
+  background-color: #E55C54;
+  border-radius: 0px;
+}
+.navbar-custom .nav .open > a,
+.navbar-custom .nav .open > a:focus,
+.navbar-custom .nav .open > a:hover {
+  background-color: #000;
+}
+.navbar-custom ul li a {
+  color: #fff ;
+}
+.navbar-custom ul li a:hover {
+  background-color: #ce332b !important;
+}
+.navbar-custom .usermenudrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.navbar-custom .usermenudrop li a {
+  color: #fff !important;
+}
+.navbar-custom .usermenudrop li a:hover {
+  color: #fff  !important ;
+}
+.navbar-custom .nav_menu {
+  text-decoration: none !important;
+  text-shadow: none !important;
+  color: #fff !important;
+}
+.navbar-custom .nav_menu_register {
+  color: #E55C54;
+}
+.navbar-custom .nav_menu_register:hover {
+  background-color: #ce332b !important;
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .navbar-custom .margin-top {
+    margin-top: 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-custom .margin-top {
+    margin-top: 20px;
+  }
+}
+.footer_style {
+  background-color: #E55C54;
+  padding: 40px 0px;
+  margin: 0px;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.footer_content .content span {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #fff;
+}
+.footer_content .content span a {
+  text-decoration: none;
+  color: #333333;
+}
+.pull-right img {
+  max-height: 30px;
+}
+.slide {
+  width: 100% !important;
+  margin-top: 0px !important;
+  max-height: 400px;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://127.0.0.1:8000/event/studentRegistrationForm/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>StudentRegistrationForm</title>
+
+
+  <!-- Bootstrap -->
+  
+  <link rel="stylesheet" type="text/css" href="./StudentRegistrationForm_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./StudentRegistrationForm_files/">
+  <script src="./StudentRegistrationForm_files/"></script>
+  <script src="./StudentRegistrationForm_files/"></script>
+  <link rel="stylesheet" href="./StudentRegistrationForm_files/style.css">
+  <script>
+	$(function() {
+	  $( "#startdatepicker" ).datepicker();
+	  $( "#enddatepicker" ).datepicker();
+	});
+  </script>
+  <style>
+	.form_holder {
+	  padding: 10px; background-color: rgba(0,0,0,0.2);
+	}
+	label {
+		color:#00BCD4;
+	}
+	.image_outer {
+	  background: url(/static/comp4.jpg) no-repeat center center;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  height:80h;
+	  width: 80%;
+	}
+
+
+	.fileUpload {
+	  position: relative;
+	  overflow: hidden;
+	  margin: 10px;
+	}
+	.form-group{
+		margin-top: 10px;
+	}
+
+	.form-control{
+		height: 40px!important;
+	}
+
+	.form-control:hover{
+		border: 1px solid blue !important;
+	}
+
+
+  </style>
+
+</head>
+<body>
+  <form action="http://127.0.0.1:8000/applicant/studentRegistration" method="POST">
+	<div class="container-fluid  ">
+	  <div class="container">
+		<h1 style="color:#000000; text-align:center">Student Registration Form</h1>
+		<div class="row" style="">
+
+		 <div class="col-sm-6  " style="border-right:1px solid #f1f1f1">
+		 <!-- <p style="font-size:1.4em">Personal Details</p> -->
+
+		  <!-- <img src="/static/im.jpg" alt="" >   -->
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">First Name</label>
+			<input type="text" name="firstName" class="form-control" id="exampleInputEmail1" placeholder="name">
+		  </div>
+
+
+
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Middle Name</label>
+			<input type="text" name="MiddleName" class="form-control" id="exampleInputPassword1" placeholder="mid name ">
+
+		  </div>
+
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Last Name</label>
+			<input type="text" name="lastName" class="form-control" id="exampleInputPassword1" placeholder="last name ">
+
+		  </div>
+
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">mobile number</label>
+			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="mobile number">
+		  </div>
+		  <div class="form-group ">
+		  	<label for="exampleInputEmail1">Email-Id</label>
+		  	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email-Id">
+		  </div>
+
+
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">Gender</label><br>
+			<input type="radio" name="gender" value="male" checked=""> Male
+			<input type="radio" name="gender" value="female" style="margin-left:"> Female
+		  </div>
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">Course</label>
+			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Course">
+		  </div>
+		</div>
+
+
+		<div class="col-sm-6 ">
+		 <!-- <p style="font-size:1.4em">Educational Details</p> -->
+
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">Institute</label>
+			<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Institute Name">
+		  </div>
+
+		  	<div class="form-group ">
+		  		<label for="exampleInputEmail1">Address</label>
+		  		<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Address">
+		  	</div>
+		  	<div class="form-group ">
+		  		<label for="exampleInputEmail1">City</label>
+		  		<input type="text" class="form-control" id="exampleInputEmail1" placeholder="city">
+		  	</div>
+		  	<div class="form-group ">
+		  		<label for="exampleInputEmail1">State</label>
+		  		<input type="text" class="form-control" id="exampleInputEmail1" placeholder="State">
+		  	</div>
+		  	<div class="form-group ">
+		  		<label for="exampleInputEmail1">PinCode</label>
+		  		<input type="text" class="form-control" id="exampleInputEmail1" placeholder="PinCode">
+		  	</div>
+		<div class="form-group ">
+			<label for="exampleInputEmail1">SubEvent</label>
+			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Year">
+		  </div>
+		  <div class="row">
+		  <div class="col-sm-4">
+		  <div class="form-group ">
+		  <label for="exampleInputEmail1">Accomodation</label><br>
+		  <input type="radio" name="accomodation" value="yes" checked="">Yes
+		  <input type="radio" name="accomodation" value="no">No
+		</div>
+		</div>
+		<div class="col-sm-4">
+		  <div class="form-group ">
+			<label for="exampleInputEmail1">Payment</label><br>
+			<input type="radio" name="accomodation" value="yes" checked="">Online
+		  <input type="radio" name="accomodation" value="no">Offline
+		  </div>
+		  </div>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4" style="text-align:center ;margin-top:10px">
+		<button type="submit" class="btn btn-success form-control" style="height: 40px;">Submit</button>
+		</div>
+		</div>
+		
+
+
+		</div>
+	  </div>
+	</div></form>
+  
+
+<script src="./StudentRegistrationForm_files/bootstrap.min.js"></script>
+
+
+
+</body></html>
