@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Home Page</title>
+		<title>clients</title>
 
 		<!-- Bootstrap CSS -->
 		<link href="/static/bower_component/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,19 +22,14 @@
 
 	<!-- <button type="submit" class=" btn btnton0 button1   " style="height: 40px; margin-bottom:20px;width:200px;" >Submit</button> -->
 	<div style="text-align:center;margin-top:50px;color:green">
-		<h1 class="text-center" style="text-align:center">company list</h1>
-	</div>
-
-
-
-
-		{% for i in company%}
+		<h1 class="text-center" style="text-align:center">clients</h1>
+		{% for i in client%}
 			<ul>
-				<a href='{% url "client" id=i.id%}'><li>{{i.company_name}}</li></a>
+				<a href="//"><li>{{i.name}}</li></a>
 			</ul>
 		{% endfor %}
 
-
+		</div>
 
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
