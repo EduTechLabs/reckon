@@ -71,7 +71,7 @@ def invoicePage(request):
 	print request.POST
 	if request.POST:
 		print "hello"
-		client = Client.objects.filter(company__id = id)
+		companyId = request.POST['companyId']
 		client_invoice_name_copy = request.POST['client_invoice_name_copy']
 		client_address_copy = request.POST['client_address_copy']
 		contact_person_name_copy = request.POST['contact_person_name_copy']
@@ -80,11 +80,11 @@ def invoicePage(request):
 		# status = request.POST['status']
 		service_tax_rate = request.POST['service_tax_rate']
 		terms_and_conditions_copy = request.POST['terms_and_conditions_copy']
-
+		client = Client.objects.get(id=companyId)
 
 		date = datetime.strptime(date,'%m/%d/%Y %H:%M:%S')
 
-		c = Invoice(clientid = clientid,client_invoice_name_copy = client_invoice_name_copy,client_address_copy =client_address_copy,
+		c = Invoice(client = client,client_invoice_name_copy = client_invoice_name_copy,client_address_copy =client_address_copy,
 			contact_person_name_copy = contact_person_name_copy,contact_person_no_copy =contact_person_no_copy,
 			date  = date ,service_tax_rate = service_tax_rate,terms_and_conditions_copy = terms_and_conditions_copy
 			)
