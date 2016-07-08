@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +7,7 @@
   <title> Invoice</title>
 
   <!-- Bootstrap CSS -->
-  <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" media="screen"
-  href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+ <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -20,73 +17,113 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-    </head>
-       <body>
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+</head>
+<body>
 
 
-<form action="/Invoice/invoicepage/" method="POST" style="margin-bottom: 0px;">
+  <form action="/Invoice/invoicepage/" method="POST" style="margin-bottom: 0px;">
 
-            <div style="text-align:center;margin-top:100px;color:green">
-              <h1 class="text-center">Invoice</h1>
-            </div>
+    <div style="text-align:center;margin-top:100px;color:green">
+      <h1 class="text-center">Invoice</h1>
+    </div>
 
-            <div class="container-fluid ">
-               <div class="container">
-            <div class="row" >
-              <div class="col-sm-4 col-sm-offset-4" >
-               <div class="form-group">
-              <label for="client">Client</label>
+    <div class="container-fluid ">
+      <div class="container">
+        <div class="row" >
+          <div class="col-sm-4 col-sm-offset-4" >
+           <div class="form-group">
+            <label for="client">Client</label>
 
-              <select class="form-control"  name="companyId">
+            <select class="form-control"  name="companyId">
 
               {% for i in clients %}
-                  <option value="{{i.id}}">{{i.id}}{{i.name}}</option>
-                  {% endfor %}
-                </select>
-                </div>
+              <option value="{{i.id}}">{{i.id}}{{i.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
 
-                <div class="form-group" style="margin-top: 30px">
-                  <input type="text" name="client_invoice_name_copy" id="" class="form-control" placeholder="client Invoice Name" autocomplete="off">
-                </div>
 
-                <div class="form-group">
-                  <input type="text" name="client_address_copy" id="" class="form-control input-lg" placeholder="Address"autocomplete="off">
-                </div>
+<!-- ++++++++++++++++++++++++++ -->
 
-                <div class="form-group">
-                  <input type="text" name="contact_person_name_copy" id="" class="form-control input-lg" placeholder="contact person"autocomplete="off">
+                <div class="form-group" style="margin-top:10px" >
+                  <input name="client_invoice_name_copy" type="text" class="form-control" id="" placeholder="Name" autocomplete="off"  >
                 </div>
 
                 <div class="form-group">
-                  <input type="text" name="contact_person_no_copy " id="" class="form-control input-lg" placeholder="Contact Person No"autocomplete="off">
+                  <input type="text" name="client_address_copy" id="" class="form-control " placeholder="Address"autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" name="contact_person_name_copy" id="" class="form-control " placeholder="contact person"autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" name="contact_person_no_copy " id="" class="form-control " placeholder="Contact Person No"autocomplete="off">
                 </div>
 
 
 
 
-                <div id="datetimepicker" class="input-append date">
+                <p>Date: <input type="text" name = "date" id="datepicker"></p>
+
+               <!--  <div id="datetimepicker" class="input-append date">
                 <label>Date</label>
                 <input name="date" type="text" style="padding-top: 15px; padding-bottom: 15px ;" autocomplete="off"></input>
-                <span class="add-on" style="padding-top: 5px ; padding-bottom: 25px ;">
+                <span class="add-on" style="padding-top: 5px; padding-bottom: 25px ;">
                   <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                 </span>
-              </div>
+              </div> -->
 
-                <!-- <div class="form-group">
-                  <input type="text" name="" id="" class="form-control input-lg" placeholder="Date"autocomplete="off">
-                </div> -->
+
+
+
+
+
+                <div class="col-sm-3">
+                 <div class="form-group" >
+                <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="Particular name" autocomplete="off" >
+                </div>
+                </div>
+
+                 <div class="col-sm-3">
+                <div class="form-group" >
+                <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="Quantity" autocomplete="off" >
+                </div>
+                </div>
+
+                 <div class="col-sm-3">
+                <div class="form-group" >
+                <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="Amount" autocomplete="off" >
+                </div>
+                </div>
+
+                 <div class="col-sm-3">
+                <div class="form-group" >
+                <input type="text" name="" class="form-control" id="exampleInputPassword1" placeholder="Period in days" autocomplete="off" >
+                </div>
+                </div>
+
+
                 <div class="form-group">
-                  <input type="text" name="service_tax_rate" id="" class="form-control input-lg" placeholder="service tax rate"autocomplete="off">
+                  <input type="text" name="service_tax_rate" id="" class="form-control" style="margin-top:10px;" placeholder="service tax rate"autocomplete="off">
                 </div>
                 <div class="form-group">
-                <label for="Terms and Condition">Terms and Condition</label>
-                 <textarea rows="7" cols="50" name= "terms_and_conditions_copy">
-                 </textarea>
-                 </div>
-                  <div class="form-group" style="text-align:center ;margin-top:20px">
-              <button type="submit" class="btn btn-success form-control" style="height: 40px;width:200px" >Submit</button>
+                  <label for="Terms and Condition">Terms and Condition</label>
+                  <textarea rows="7" cols="50" name= "terms_and_conditions_copy">
+                  </textarea>
+                </div>
+                <div class="form-group" style="text-align:center ;margin-top:20px">
+                  <button type="submit" class="btn btn-success form-control" style="height: 40px;width:200px" >Submit</button>
+                </div>
+                {{validation}}
+              </div>
             </div>
-             {{validation}}
+          </div>
+        </div>
 </form>
 <script type="text/javascript"
 src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
@@ -94,22 +131,12 @@ src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
 <script type="text/javascript"
 src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
 </script>
-<script type="text/javascript"
-src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-</script>
-<script type="text/javascript"
-src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-</script>
-<script type="text/javascript">
-  $('#datetimepicker').datetimepicker({
-    format: 'dd/MM/yyyy hh:mm:ss',
-    language: 'pt-en'
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
   });
-  $('#datetimepicker1').datetimepicker({
-    format: 'dd/MM/yyyy hh:mm:ss',
-    language: 'pt-en'
-  });
-</script>
+  </script>
 
- </body>
+</body>
  </html>

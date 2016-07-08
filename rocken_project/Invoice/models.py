@@ -40,7 +40,7 @@ class Invoice(models.Model):
 	client_address_copy = models.TextField(null=True,blank=True)
 	contact_person_name_copy = models.CharField(max_length=100,null=True,blank =True)
 	contact_person_no_copy = models.IntegerField(null=True,blank = True)
-	date = models.DateTimeField()
+	date = models. DateField()
 	# status = models.CharField(max_length=25,choices=choice,default='statuspending')
 	service_tax_rate = models.IntegerField(null=True,blank = True)
 	terms_and_conditions_copy= models.TextField(null=True,blank=True)
