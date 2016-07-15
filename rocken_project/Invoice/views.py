@@ -1,13 +1,14 @@
 from django.shortcuts import render,HttpResponse,render_to_response,HttpResponseRedirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login
 from models import CompanyCreation,Client,Invoice
 from datetime import datetime
 
 # Create your views here.
 
-def login(request):
+def loginPage(request):
 	return render_to_response("Template/Loginpage.html")
+
 
 def invoice(request):
 	return render_to_response("Invoice.html")
@@ -19,12 +20,13 @@ def homepage(request):
 	args['company'] = company
 	return render_to_response('Homepage.html', args)
 
+
 def auth(request):
-	args={}
 	if request.POST:
 		print request.POST, "hello..."
 		username = request.POST['username']
 		password = request.POST['password']
+
 		redirectUrl = '/Invoice/homepage/'
 		args = {"username":username,"password":password}
 		print args
@@ -33,17 +35,12 @@ def auth(request):
 			user = User.objects.get(username=username)
 		except:
 			print "username does not exist"
-			args['validation'] = "username does not exist..!!"
+			args['validation'] = "Invalid login details..!!"
 			args['status'] = False
-			return render_to_response('Template/Loginpage.html',args)
-		if user.groups.filter(name='USER').exists():
-			redirectUrl = '/Invoice/homepage/'
-
-		print user
-
-		user = authenticate(username=username, password=password)
+			return render_to_response('Loginpage.html',args)
 		if user is not None:
 			if user.is_active:
+				login(request,user)
 				return HttpResponseRedirect(redirectUrl)
 			else:
 				validation = "Login invalid. Please try again."
@@ -56,10 +53,9 @@ def auth(request):
 			args = {}
 			args['validation'] = validation
 			args['status'] =False
-			return render_to_response('Template/Loginpage.html',args)
+			return render_to_response('Loginpage.html',args)
 	else:
-		return render_to_response('Template/Loginpage.html',args)
-
+		 return render_to_response('Loginpage.html')
 
 def clientlist(request,id):
 	client = Client.objects.filter(company__id = id)
@@ -82,7 +78,7 @@ def invoicePage(request):
 		terms_and_conditions_copy = request.POST['terms_and_conditions_copy']
 		client = Client.objects.get(id=companyId)
 
-		date = datetime.strptime(date,'%m/%d/%Y %H:%M:%S')
+		date = datetime.strptime(date,'%m/%d/%Y')
 
 		c = Invoice(client = client,client_invoice_name_copy = client_invoice_name_copy,client_address_copy =client_address_copy,
 			contact_person_name_copy = contact_person_name_copy,contact_person_no_copy =contact_person_no_copy,
@@ -99,7 +95,6 @@ def invoicePage(request):
 		args = {}
 		args['clients'] =clients
 		return render_to_response('Invoice.html', args)
-
 
 
 
